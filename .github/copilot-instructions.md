@@ -20,12 +20,13 @@
 
 ## Patterns & Conventions
 
-- **Hooks:** Business logic and state are in `src/hooks/`, e.g. `useCounterSignal.ts`. UI components import hooks, do not contain business logic.
-- **Signals:** Prefer signals over useState for local state.
-- **TypeScript:** Strict typing enforced via `tsconfig.app.json`.
-- **Tests:** All hooks must have corresponding `.test.ts` files in the same folder.
-- **Lint/Format:** ESLint config uses `eslint.config.js` (FlatConfig, Prettier integrated). No `.eslintrc.*`.
-- **Imports:** For public assets, use `/assetname.ext` (Vite convention). For local assets, use relative imports from `src/assets/`.
+**Hooks:** Business logic and state are in `src/hooks/`, e.g. `useCounterSignal.ts`. UI components import hooks, do not contain business logic.
+**Signals:** Prefer signals over useState for local state.
+**TypeScript:** Strict typing enforced via `tsconfig.app.json`.
+**Tests:** All hooks must have corresponding `.test.ts` files in the same folder.
+**Lint/Format:** ESLint config uses `eslint.config.js` (FlatConfig, Prettier integrated). No `.eslintrc.*`.
+**Imports:** For public assets, use `/assetname.ext` (Vite convention). For local assets, use relative imports from `src/assets/`.
+**Documentation:** All new functions, hooks, and exported symbols must have TSDoc comments (`/** ... */`) describing purpose, parameters, return values, and usage examples. Comments should support automatic documentation generation and help trace/debug logic (especially for signals and state changes).
 
 ## Integration Points
 

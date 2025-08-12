@@ -20,6 +20,15 @@
       }
     },
     {
+      "label": "build:full",
+      "type": "shell",
+      "command": "npm run build:full",
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
       "label": "preview",
       "type": "shell",
       "command": "npm run preview",
@@ -61,6 +70,25 @@
       "type": "shell",
       "command": "npm run test:run",
       "group": "test",
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+    ,
+    {
+      "label": "docs",
+      "type": "shell",
+      "command": "npm run docs",
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "docs:json",
+      "type": "shell",
+      "command": "npm run docs:json",
+      "group": "build",
       "presentation": {
         "reveal": "always"
       }
