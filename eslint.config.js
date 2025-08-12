@@ -1,4 +1,5 @@
 import preact from "eslint-config-preact";
+import prettierConfig from "eslint-config-prettier";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsparser from "@typescript-eslint/parser";
 
@@ -7,6 +8,7 @@ export default [
     ignores: ["**/node_modules/**", "**/dist/**"],
   },
   ...preact,
+  ...prettierConfig,
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {

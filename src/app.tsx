@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks'
 import preactLogo from './assets/preact.svg'
-import viteLogo from './assets/vite.svg'
+const viteLogo = '/vite.svg';
 import './app.css'
 
 export function App() {
