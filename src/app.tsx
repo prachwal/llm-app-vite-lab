@@ -1,7 +1,6 @@
 import { useCounterSignal } from './hooks/useCounterSignal'
 import preactLogo from './assets/preact.svg'
 const viteLogo = '/vite.svg';
-import './app.css'
 
 export function App() {
   const { count, increment } = useCounterSignal()
