@@ -7,7 +7,7 @@ import tseslint from "@typescript-eslint/eslint-plugin";
 import tsparser from "@typescript-eslint/parser";
 
 export default [{
-  ignores: ["**/node_modules/**", "**/dist/**"],
+  ignores: ["**/node_modules/**", "**/dist/**", ".storybook/**", "src/stories/**", "vite.config.ts"],
 }, ...preact, prettierConfig, {
   files: ["**/*.ts", "**/*.tsx"],
   languageOptions: {

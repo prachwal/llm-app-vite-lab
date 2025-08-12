@@ -3,9 +3,25 @@
 ## Project Architecture
 
 - **Frontend:** Built with Preact + Vite, using TypeScript for type safety.
-- **Component Structure:** UI components are in `src/`, logic is separated into `src/hooks/` (custom hooks, signals).
+- **Component Structure:** UI components in `src/components/` organized in folders with dedicated test and story files, logic separated into `src/hooks/` (custom hooks, signals) and `src/utils/` (utilities, logging).
 - **State Management:** Uses Preact signals (`@preact/signals`) for reactive state, see `src/hooks/useCounterSignal.ts`.
 - **Assets:** Images and static files are in `public/` (for Vite public assets) and `src/assets/` (for local imports).
+
+## Component Architecture
+
+**Component Organization:** Each component has its own folder in `src/components/` with three files:
+
+- `ComponentName.tsx` - The component implementation with TSDoc comments
+- `ComponentName.test.tsx` - Comprehensive unit tests using @testing-library/preact
+- `ComponentName.stories.tsx` - Storybook stories for all variants and states
+
+**Component Patterns:**
+
+- Components are pure UI presentation layer - no business logic
+- Import hooks/utilities for functionality (separation of concerns)
+- Use TSDoc comments with `@param`, `@returns`, `@example` tags
+- Include accessibility attributes (ARIA labels, semantic HTML)
+- Follow Tailwind CSS patterns for styling consistency
 
 ## Developer Workflows
 
@@ -20,13 +36,15 @@
 
 ## Patterns & Conventions
 
+**Components:** UI components in `src/components/ComponentName/` folders, each with `.tsx`, `.test.tsx`, and `.stories.tsx` files. Components are pure UI - import hooks/services for logic.
 **Hooks:** Business logic and state are in `src/hooks/`, e.g. `useCounterSignal.ts`. UI components import hooks, do not contain business logic.
-**Signals:** Prefer signals over useState for local state.
+**Signals:** Prefer signals over useState for local state. Module-scoped signals prevent reinitialization.
 **TypeScript:** Strict typing enforced via `tsconfig.app.json`.
-**Tests:** All hooks must have corresponding `.test.ts` files in the same folder.
+**Tests:** All components and hooks must have corresponding `.test.ts/.test.tsx` files with comprehensive coverage.
+**Storybook:** Every component must have a `.stories.tsx` file documenting all variants and props.
 **Lint/Format:** ESLint config uses `eslint.config.js` (FlatConfig, Prettier integrated). No `.eslintrc.*`.
 **Imports:** For public assets, use `/assetname.ext` (Vite convention). For local assets, use relative imports from `src/assets/`.
-**Documentation:** All new functions, hooks, and exported symbols must have TSDoc comments (`/** ... */`) describing purpose, parameters, return values, and usage examples. Comments should support automatic documentation generation and help trace/debug logic (especially for signals and state changes).
+**Documentation:** All new functions, hooks, components, and exported symbols must have TSDoc comments (`/** ... */`) describing purpose, parameters, return values, and usage examples. Comments should support automatic documentation generation and help trace/debug logic (especially for signals and state changes).
 
 ## Integration Points
 
@@ -36,8 +54,10 @@
 
 ## Examples
 
-- **Counter logic:** See `src/hooks/useCounterSignal.ts` and usage in `src/app.tsx`.
-- **Test example:** See `src/hooks/useCounterSignal.test.ts`.
+- **Counter logic:** See `src/hooks/useCounterSignal.ts` and usage in `src/components/Counter/Counter.tsx`.
+- **Test example:** See `src/hooks/useCounterSignal.test.ts` and `src/components/Counter/Counter.test.tsx`.
+- **Component structure:** See `src/components/Header/` folder for complete component pattern with tsx/test/stories files.
+- **Storybook stories:** See `src/components/Header/Header.stories.tsx` for comprehensive component documentation.
 
 ## Quickstart
 

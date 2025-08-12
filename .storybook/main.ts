@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/preact-vite';
+import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   "stories": [
@@ -14,6 +15,14 @@ const config: StorybookConfig = {
   "framework": {
     "name": "@storybook/preact-vite",
     "options": {}
-  }
+  },
+  async viteFinal(config) {
+    // Add Tailwind CSS 4 plugin
+    if (!config.plugins) {
+      config.plugins = [];
+    }
+    config.plugins.push(tailwindcss());
+    return config;
+  },
 };
 export default config;

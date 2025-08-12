@@ -5,6 +5,9 @@
 import { signal } from '@preact/signals';
 import { logInfo, logDebug } from '../utils/logger';
 
+// Create signal outside the hook to persist across re-renders
+const count = signal(0);
+
 /**
  * Custom hook for counter state using Preact signals.
  * @returns {{ count: import('@preact/signals').Signal<number>, increment: () => void }}
@@ -16,11 +19,6 @@ import { logInfo, logDebug } from '../utils/logger';
  */
 export function useCounterSignal() {
     /**
-     * Reactive counter value (signal).
-     */
-    const count = signal(0);
-
-    /**
      * Increments the counter and logs the change.
      * Logs previous and next value for debugging.
      */
@@ -31,8 +29,10 @@ export function useCounterSignal() {
         logDebug('Counter signal state', count);
     };
 
-    // Log initialization for debugging signal lifecycle
-    logInfo('Counter initialized', { value: count.value });
+    // Log initialization only once when module loads
+    if (count.value === 0) {
+        logInfo('Counter initialized', { value: count.value });
+    }
 
     return { count, increment };
 }
