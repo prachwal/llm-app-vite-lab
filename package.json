@@ -8,20 +8,26 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .ts,.tsx src/",
-    "lint:fix": "eslint --ext .ts,.tsx src/ --fix"
+    "lint:fix": "eslint --ext .ts,.tsx src/ --fix",
+    "test": "vitest",
+    "test:run": "npx vitest run"
   },
   "dependencies": {
     "preact": "^10.26.9"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2",
+    "@preact/signals": "^2.2.1",
+    "@testing-library/preact": "^3.2.4",
     "@typescript-eslint/eslint-plugin": "^8.39.1",
     "@typescript-eslint/parser": "^8.39.1",
     "eslint": "^9.33.0",
     "eslint-config-preact": "^2.0.0",
     "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^26.1.0",
     "prettier": "^3.6.2",
     "typescript": "5.9.2",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
   }
 }

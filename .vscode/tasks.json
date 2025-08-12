@@ -45,6 +45,25 @@
       "presentation": {
         "reveal": "always"
       }
+  },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "npm run test",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+    ,
+    {
+      "label": "test:run",
+      "type": "shell",
+      "command": "npm run test:run",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      }
     }
   ]
 }

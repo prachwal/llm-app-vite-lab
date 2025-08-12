@@ -1,10 +1,10 @@
-import { useState } from 'preact/hooks'
+import { useCounterSignal } from './hooks/useCounterSignal'
 import preactLogo from './assets/preact.svg'
 const viteLogo = '/vite.svg';
 import './app.css'
 
 export function App() {
-  const [count, setCount] = useState(0)
+  const { count, increment } = useCounterSignal()
 
   return (
     <>
@@ -18,8 +18,8 @@ export function App() {
       </div>
       <h1>Vite + Preact</h1>
       <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={increment}>
+          count is {count.value}
         </button>
         <p>
           Edit <code>src/app.tsx</code> and save to test HMR
